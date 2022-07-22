@@ -1,0 +1,59 @@
+.header {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-div {
+  background-color: rgba(47, 159, 248, 0.04);
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.input-div button {
+  border: none;
+  background-color: rgba(47, 158, 248, 0);
+  cursor: pointer;
+}
+
+.input-div button > i {
+  font-size: 18px;
+}
+
+.input-div > input {
+  border: none;
+  padding: 8px;
+  background-color: rgba(47, 158, 248, 0);
+  width: 90%;
+} 
+
+.carrency-container {
+  display: flex;
+}
+
+.carrency-container > div {
+  margin: 10px;
+  border-right: 1px solid  #e3e3e3;
+  padding-right: 10px;
+  color: #072D4B;
+  font-size: 13px;
+
+}
+
+.carrency-container > div > i {
+  color: red;
+  font-size: 10px;
+  margin-left: 5px;
+
+}
+
+.carrency-container > div >:last-child > i {
+  color: green;
+}
+
+.carrency-container > div:last-child {
+  border: none;
+}
+

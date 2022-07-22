@@ -1,0 +1,200 @@
+.video-news-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.video-news-header > h3 {
+  padding-top: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #072d4b;
+}
+
+.video-news-flex {
+  display: flex;
+  gap: 20px;
+}
+
+.first-container {
+  width: 85%;
+  margin: auto;
+}
+
+.left-video-news {
+  width: 60%;
+  position: relative;
+  height: 563px;
+}
+
+.left-video-news > img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.651);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.play-div:hover {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.bottom-background {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.504);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-background > p {
+  font-size: 23px;
+  font-weight: 23px;
+  color: #fff;
+}
+
+.right-video-item {
+  padding: 13px;
+  border-bottom: 1px solid #e3e3e3;
+  display: flex;
+  align-items: center;
+}
+
+.for-img {
+  position: relative;
+  width: 125px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.right-video-item > div > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-second-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.53);
+  cursor: pointer;
+}
+
+.play-second-div > img {
+  width: 11px;
+}
+
+.small-img-desc span {
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.small-img-desc > h4 {
+  width: 260px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #21242a;
+  margin-top: 10px;
+}
+
+.for-banner {
+  width: 100%;
+  height: 319px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.for-banner > img {
+  width: 100%;
+  height: 100%;
+}
+
+.bulimga-btn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #2f9ff8;
+  font-size: 17px;
+  background-color: inherit;
+  transition: all 0.4s ease;
+}
+
+.bulimga-btn:hover {
+  background-color: #2f9ff8;
+  color: #fff;
+}
+
+.fo-banner-desc {
+  position: absolute;
+  top: 35px;
+  left: 48px;
+}
+
+.fo-banner-desc > h1 {
+  margin-bottom: 12px;
+  font-size: 37px;
+  font-weight: 700;
+  color: #072d4b;
+}
+
+.fo-banner-desc > p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #072d4b;
+}
+
+.fo-banner-desc > p> span {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btns-img {
+  margin-top: 45px;
+}
+
+.btns-img > button {
+  border: none;
+  background-color: inherit;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+.btns-img > button:hover {
+  transform: scale(1.03);
+}

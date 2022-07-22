@@ -1,0 +1,82 @@
+.foto-news {
+  width: 100%;
+  min-height: 30vh;
+  background-color: #fff;
+  padding: 40px;
+}
+
+.foto-news__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.foto-news__header > button {
+  width: 148px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+  border: 1px solid #2F9FF8;
+  border-radius: 4px;
+  transition: all .4s ease;
+  cursor: pointer;
+}
+
+.foto-news__header > button:hover {
+  background-color: #2F9FF8;
+  color: #fff;
+
+}
+
+.mySwiper1 {
+  width: 100%;
+  height: 40vh;
+  margin-top: 25px;
+}
+
+.swipe_item{
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: inherit !important;
+  border-radius: 10px;
+  position: relative;
+}
+
+.swipe_item:hover {
+  background-color: inherit;
+}
+
+.swipe_item > h4 {
+  position: absolute;
+  width: 388px;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.101);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}

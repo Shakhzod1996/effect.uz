@@ -1,0 +1,83 @@
+.navbar {
+  width: 22%;
+  min-height: 705px;
+  background-color: inherit;
+  padding-top: 30px;
+}
+
+.logo-div {
+  padding-left: 40px;
+}
+
+.navbar-ul {
+  list-style: none;
+  margin-left: 40px;
+  margin-top: 45px;
+}
+
+.navbar-ul > a {
+  text-decoration: none;
+  transition: all 0.4s ease;
+  color: #072d4b;
+  font-weight: 400;
+  font-size: 15px;
+  transition: all .4s ease;
+  width: 100% !important;
+}
+
+
+.navbar-ul > a:hover li {
+  background-color: #2f9ef81e !important;
+  color: #2f9ff8;
+} 
+
+.navbar-ul > a > li {
+  padding: 16px;
+  transition: all 0.4s ease;
+  border-top-right-radius: 37px;
+  border-bottom-right-radius: 37px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.navbar-ul > a > li > img {
+  margin-right: 15px;
+}
+
+.active-nav > li {
+  background-color: #2f9ef81e !important;
+  color: #2f9ff8;
+  width: 100% !important;
+}
+
+.globe-absolute  {
+  padding-left: 50px;
+  display: none;
+}
+
+
+.navbar-ul > a:last-child:hover .globe-absolute {
+  display: block;
+}
+
+
+.globe-absolute > p {
+  margin-bottom: 10px !important;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  
+}
+
+.globe-absolute > p > span {
+  width: 12px;
+  height: 2px;
+  background-color: #2f9ff8;
+  margin-right: 10px;
+  transition: all .4s ease;
+}
+
+.globe-absolute > p:hover span {
+  width: 22px;
+}
