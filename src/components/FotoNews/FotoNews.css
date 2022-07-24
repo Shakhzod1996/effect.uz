@@ -1,6 +1,6 @@
 .foto-news {
   width: 100%;
-  min-height: 30vh;
+  /* min-height: 30vh; */
   background-color: #fff;
   padding: 40px;
 }
@@ -18,28 +18,29 @@
   align-items: center;
   justify-content: center;
   background-color: inherit;
-  border: 1px solid #2F9FF8;
+  border: 2px solid #2f9ff8;
   border-radius: 4px;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   cursor: pointer;
 }
 
 .foto-news__header > button:hover {
-  background-color: #2F9FF8;
+  background-color: #2f9ff8;
   color: #fff;
-
 }
 
 .mySwiper1 {
   width: 100%;
-  height: 40vh;
+  /* height: 40vh; */
   margin-top: 25px;
+  transition: all 0.4s ease;
 }
 
-.swipe_item{
+.swipe_item {
   text-align: center;
   font-size: 18px;
   background: #fff;
+  height: 409px !important;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -57,10 +58,10 @@
   background-color: inherit !important;
   border-radius: 10px;
   position: relative;
-}
+  transition: all 0.4s ease;
+  width: 362px;
+  border-radius: 10px !important;
 
-.swipe_item:hover {
-  background-color: inherit;
 }
 
 .swipe_item > h4 {
@@ -78,5 +79,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 10px !important;
+  transition: all 0.4s ease;
 }
+
+.swipe_item:hover {
+  transform: scale(1.05) !important;
+}
+

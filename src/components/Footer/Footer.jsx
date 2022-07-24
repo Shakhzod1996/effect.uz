@@ -1,6 +1,10 @@
 import React from "react";
 import "./Footer.css";
 import siteLogo from "../../assets/images/SiteLogo.png";
+import location from "../../assets/images/location.png";
+import message1 from "../../assets/images/mess1.png";
+
+
 
 export default function Footer() {
   return (
@@ -60,12 +64,12 @@ export default function Footer() {
           <div className="right-footer">
             <h3>Contact Us</h3>
             <div>
-              <i className="bx bx-location-plus"></i>
+              <img src={location} alt="img" />
               <p>Wisconsin Ave, Suite 700 Chevy Chase, Maryland 20815</p>
             </div>
 
             <div>
-              <i className="bx bx-message-square"></i>
+              <img src={message1} alt="img" />
               <p>support@figma.com</p>
             </div>
 

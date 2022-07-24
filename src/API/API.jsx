@@ -3,7 +3,7 @@ import axios from "axios";
 const header = {
   header: {
     "Content-Type": "application/json; charset=utf-8",
-    Authorization: "Bearer " + token,
+    Authorization: `m74RW2ED2gXtb3fIH212_GUsRTzS1CNs5svao2SE0u75EABMav`,
   },
 };
 
@@ -16,7 +16,7 @@ const API = {
     axios.post(LOGIN_URL, params);
   },
 
-  category: async (params) => {
+  category: async () => {
     try {
       const response = await axios.get(CATEGORY_URL, header);
       return response;
@@ -33,3 +33,5 @@ const API = {
     }
   },
 };
+
+export default API;

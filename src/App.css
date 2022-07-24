@@ -13,5 +13,10 @@ body {
 
 .main_flex {
   display: flex;
-  gap: 45px;
+  gap: 50px;
+}
+
+.container-main {
+  width: 1440px;
+  margin: auto;
 }

@@ -5,6 +5,9 @@ import moon from "../../assets/images/moon.png";
 import sunBig from "../../assets/images/sun-big.png";
 import feather from "../../assets/images/feather.png";
 import file from "../../assets/images/file-text.png";
+import cart from "../../assets/images/cart.png";
+import gift from '../../assets/images/gift.png'
+
 
 export default function SideBar() {
   const eight = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -77,7 +80,7 @@ export default function SideBar() {
         {eight.map((item) => {
           return (
             <div className="kup-uqilgan-item" key={item}>
-              <span>11:45 | 13.07.2022</span>
+              <span><img src={cart} alt="img" /> 11:45 | 13.07.2022</span>
               <p>
                 The price of petrol remained unchanged on July 6 after reaching
                 a new record high on.
@@ -85,6 +88,18 @@ export default function SideBar() {
             </div>
           );
         })}
+      </div>
+
+      <div className="premium1">
+        <div>
+          <img src={gift} alt="gift" />
+          <p>Subscribe to Premium</p>
+        </div>
+
+        <div className="last-upgrade">
+          <p>$8 <span>/m</span></p>
+          <button>Upgrade</button>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,160 @@
+.news {
+  width: 771px;
+  padding-top: 20px;
+}
+
+.news-bot-main {
+  background-color: #fff;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+.date-div {
+  margin-top: 15px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.blue-line {
+  width: 90%;
+  margin: auto;
+  height: 2px;
+  background-color: #0768b5;
+}
+
+.date-div > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.right-news-container {
+  margin-left: 72px;
+  border-left: 1px solid #c7c8ca;
+}
+
+.news-cards-flex {
+  display: flex;
+  gap: 15px;
+}
+
+.right-news-item {
+  padding: 14px;
+  border-radius: 4px;
+  display: flex;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+  position: relative;
+}
+
+.right-news-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.right-news-item > img {
+  width: 134px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 25px;
+}
+
+.right-news-item-inside {
+  margin-top: 38px;
+  position: relative;
+}
+
+.clock-absolute {
+  position: absolute;
+  display: flex;
+  gap: 7px;
+  color: #c6c6c6;
+  align-items: center;
+  left: -65px;
+  top: 40px;
+}
+
+.clock-absolute > p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.clock-absolute > img {
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.right-news-item:hover h4 {
+  color: #1e88e5;
+}
+
+.right-news-item-inside > h4 {
+  width: 471px;
+  font-size: 17px;
+  font-weight: 500;
+  transition: all 0.4s ease;
+}
+
+.right-news-item-inside > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.right-news-item-inside > div > p {
+  font-size: 12px;
+  color: #999;
+}
+
+.hr-bottom {
+  border: none;
+  width: 100%;
+  height: 1px;
+  background-color: #c7c8ca;
+}
+
+.big-arr-div {
+  border: none;
+  /* width: 100%; */
+  /* height: 1px; */
+  border-bottom: 1px solid #c7c8ca;
+}
+
+.big-arr-div:last-child {
+  border: none;
+}
+
+.btn-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-container > button {
+  width: 148px;
+  height: 38px;
+  background-color: inherit;
+  border: 2px solid #2f9ff8;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn-container > button:hover {
+  background-color: #2f9ff8;
+  color: #fff;
+}

@@ -1,6 +1,5 @@
 .sidebar {
-  width: 20%;
-  margin-right: 34px;
+  width: 285px;
   min-height: 200px;
   padding-top: 20px;
 }
@@ -168,7 +167,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #2F9FF8;
+  border: 2px solid #2F9FF8;
   background-color: inherit;
   border-radius: 4px;
   color: #2F9FF8;
@@ -205,6 +204,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e3e3e3;
+  transition: all .4s ease;
+  cursor: pointer;
 }
 
 .kup-uqilgan-item:last-child {
@@ -214,6 +215,13 @@
 .kup-uqilgan-item > span {
   font-size: 10px;
   color: #999;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.kup-uqilgan-item > span > img {
+  margin-right: 4px;
 }
 
 .kup-uqilgan-item > p{
@@ -221,4 +229,67 @@
   font-size: 12px;
   font-weight: 400;
 }
+
+.kup-uqilgan-item:hover >p {
+  color: #2F9FF8;
+}
+
+.kup-uqilgan-item:hover {
+  transform: translate(10px);
+}
+
+.premium1 {
+  width: 100%;
+  height: 113px;
+  background-color: #2F9FF8;
+  margin-top: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.premium1>div {
+  display: flex;
+  align-items: center;
+
+}
+
+.premium1>div:first-child {
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.premium1>div>img {
+  margin-right: 10px;
+}
+
+.last-upgrade>p {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.last-upgrade>p >span {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.last-upgrade > button {
+  width: 110px;
+  height: 38px;
+  background-color: #0768B5;
+  border: 1px solid #2F9FF8;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+.last-upgrade > button:hover {
+  background-color: #083c63;
+}
+
 

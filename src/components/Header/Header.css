@@ -27,6 +27,7 @@
   padding: 8px;
   background-color: rgba(47, 158, 248, 0);
   width: 90%;
+  outline: none;
 } 
 
 .carrency-container {
@@ -42,7 +43,7 @@
 
 }
 
-.carrency-container > div > i {
+.carrency-container > div > img {
   color: red;
   font-size: 10px;
   margin-left: 5px;

@@ -6,6 +6,9 @@ import football from "../../assets/images/football.png";
 import banner from "../../assets/images/banner.jfif";
 import google from "../../assets/images/google.png";
 import google1 from "../../assets/images/google1.png";
+import clock from "../../assets/images/clock.png";
+
+
 
 
 
@@ -43,8 +46,8 @@ export default function VideoNews() {
                     </div>
                   </div>
                   <div className="small-img-desc">
-                    <span>05.11.2022</span>
-                    <h4>
+                    <span><img src={clock} alt="" /> 05.11.2022</span>
+                    <h4 className="h44">
                       Kaan Terzio‘g‘lu: “O‘zbekiston kelajagi – raqamli
                       iqtisodiyot...
                     </h4>

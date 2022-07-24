@@ -1,10 +1,12 @@
 .main-page {
-  width: 57%;
   padding-top: 20px;
+  width: 771px
+
 }
 
 .last-news {
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .last-news-title {
@@ -52,6 +54,25 @@
   margin-top: 20px;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff !important;
+    fill: #fff !important;
+    stroke: #fff !important;
+    background-color: #2F9FF8;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% ;
+    
+}
+
+.for-width {
+  width: 60% !important;
+}
+
 .act {
   background-color: #2F9FF8 !important;
   color: #fff;
@@ -73,6 +94,16 @@
 .left-img-con {
   width: 50%;
 }
+
+.left-img-con > img {
+  transition: all .4s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.left-img-con > img:hover {
+  transform: scale(1.02);
+  }
 
 .left-img-con > img {
   width: 100%;
@@ -130,13 +161,17 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-
-
 .right-img-items > div > p {
   font-size: 10px;
   font-weight: 400;
   color: #999;
   margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.right-img-items > div > p > img {
+  margin-right: 3px;
 }
 
 .right-img-items > div > h4 {
@@ -252,6 +287,33 @@
   font-size: 14px;
 }
 
+.izoh-content {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-right: 5px;
+  font-size: 12px;
+  color: #999;
+}
+
+.izoh-content > p {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.pub {
+  transition: all .4s ease;
+}
+
+.technology-item:hover .pub {
+  transform: scale(1.04);
+}
+
+.izoh-content > p > img {
+  margin-right: 4px;
+}
+
 .technology-item > div {
   width: 210px;
   line-height: 24px;
@@ -261,6 +323,10 @@
   margin-bottom: 10px;
   color: #072D4B;
   transition: all .4s ease;
+  width: 182px;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 10px;
 }
 
 .technology-item:hover h4 {
@@ -271,6 +337,7 @@
   float: right;
   font-size: 14px;
   color: #999;
+  margin-right: 10px;
 }
 
 .technology-item > img {
@@ -290,7 +357,7 @@
 .all-news-div > button {
   width: 148px;
   height: 38px;
-  border: 1px solid #072D4B;
+  border: 2px solid #2F9FF8;
   border-radius: 4px;
   background-color: inherit;
   transition: all .4s ease;

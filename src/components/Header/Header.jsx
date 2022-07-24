@@ -1,5 +1,8 @@
 import React from "react";
-import './Header.css'
+import './Header.css';
+import arrDown from '../../assets/images/arr-down.png';
+import arrUp from '../../assets/images/arrow-aup.png';
+
 
 export default function Header() {
   return (
@@ -14,17 +17,17 @@ export default function Header() {
       <div className="carrency-container">
         <div>
           USD = 108917,93
-          <i className='bx bxs-chevron-down'></i>
+          <img src={arrDown} alt="img" />
         </div>
 
         <div>
           EUR = 12651,93
-          <i className='bx bxs-chevron-down'></i>
+          <img src={arrDown} alt="img" />
         </div>
 
         <div>
           RUB = 190,93
-          <i className='bx bxs-chevron-up'></i>
+          <img src={arrUp} alt="img" />
         </div>
       </div>
     </div>

@@ -55,9 +55,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+  width: 100% !important;
 }
 
-.right-footer > div > i {
+.right-footer > div > img {
   font-size: 20px;
   margin-right: 10px;
 }
@@ -68,6 +69,14 @@
   height: 30px;
   background-color: inherit;
   border-radius: 4px;
+  transition: all .4s ease;
+  cursor: pointer;
+  border: 2px solid #2f9ff8;
+}
+
+.sub:hover {
+  background-color: #2f9ff8;
+  color: #fff;
 }
 
 .follow-header {
@@ -79,9 +88,13 @@
 .links-flex {
   display: flex;
   align-items: center;
+  /* width: 100px!important; */
+  /* justify-content: space-between; */
 }
 
 .links-flex > i {
   font-size: 20px;
   cursor: pointer;
+  margin: 10px;
 }
+

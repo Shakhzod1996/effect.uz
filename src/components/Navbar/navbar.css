@@ -1,17 +1,17 @@
 .navbar {
-  width: 22%;
+  width: 260px;
   min-height: 705px;
   background-color: inherit;
   padding-top: 30px;
 }
 
 .logo-div {
-  padding-left: 40px;
+  /* padding-left: 40px; */
 }
 
 .navbar-ul {
   list-style: none;
-  margin-left: 40px;
+  /* margin-left: 40px; */
   margin-top: 45px;
 }
 
@@ -39,28 +39,70 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  color: #072D4B !important;
 }
 
-.navbar-ul > a > li > img {
+.alone-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alone-li div {
+  display: flex;
+  align-items: center;
+}
+
+.alone-li div svg {
   margin-right: 15px;
+}
+
+.alone-li > i {
+  font-size: 22px;
+  color: #072D4B;
+  transform: rotate(0);
+  transition: all .4s ease;
+}
+
+
+.navbar-ul > a > li > svg {
+  margin-right: 15px;
+  color: red !important;
+  
 }
 
 .active-nav > li {
   background-color: #2f9ef81e !important;
-  color: #2f9ff8;
   width: 100% !important;
+}
+
+.active-nav > li > i {
+  color: #2f9ff8 !important;
+  transform: rotate(90deg);
+
+}
+
+.active-nav > li > p {
+  color: #2f9ff8;
+  transition: all .4s ease;
+}
+
+.active-nav > li > div > p {
+  color: #2f9ff8;
+  transition: all .4s ease;
 }
 
 .globe-absolute  {
   padding-left: 50px;
-  display: none;
+  overflow: hidden;
+  height: 0;
+  transition: all .4s ease;
 }
 
-
-.navbar-ul > a:last-child:hover .globe-absolute {
+.navbar-ul > a:hover .globe-absolute  {
   display: block;
+  height: 300px;
 }
-
 
 .globe-absolute > p {
   margin-bottom: 10px !important;
@@ -78,6 +120,57 @@
   transition: all .4s ease;
 }
 
+.svg-color {
+  stroke: #072D4B !important;
+  transition: all .4s ease;
+}
+
 .globe-absolute > p:hover span {
   width: 22px;
 }
+.active-nav .svg-color {
+  stroke: #2f9ff8 !important;
+}
+
+.active-ul {
+  overflow: hidden;
+  height: 0;
+  transition: all .4s ease;
+  margin-left: 40px !important;
+}
+
+.active-nav .active-ul {
+  height: 150px;
+  transition: all .4s ease;
+  margin-bottom: 10px;
+  
+}
+
+.active-ul >div  {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  transition: all .4s ease;
+  padding: 5px;
+}
+
+.active-ul > div > div {
+  width: 12px;
+  height: 2px !important;
+  margin-right: 5px;
+  background-color: #2f9ff8;
+  transition: all .4s ease;
+
+}
+
+.active-ul > div>p {
+  transition: all .4s ease;
+}
+
+.active-ul > div:hover >div {
+  width: 22px;
+}
+
+
+
+
