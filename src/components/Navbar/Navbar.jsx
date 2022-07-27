@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.css";
 import logo from "../../assets/images/Group 121.svg";
 import { NavLink } from "react-router-dom";
@@ -8,12 +8,34 @@ import frame from "../../assets/images/Frame.svg";
 import audio from "../../assets/images/lenta.svg";
 import video from "../../assets/images/video.svg";
 import globe from "../../assets/images/globe.svg";
+import API from "../../API/API";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const {t} = useTranslation()
+
+  const [data, setData] = useState([]);
+  const [region, setRegion] = useState([]);
+
+
+  const fetchData = async () => {
+    try {
+      const category = await API.category();
+      const provence = await API.provence();
+      
+      setData(category.data);
+      setRegion(provence.data)
+    } catch (error) {}
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="navbar">
       <div className="logo-div">
-        <img src={logo} alt="img" />
+        <NavLink to="/">
+          <img src={logo} alt="img" />
+        </NavLink>
       </div>
 
       <ul className="navbar-ul">
@@ -47,7 +69,7 @@ export default function Navbar() {
               />
             </svg>
 
-            <p>Bosh Sahifa</p>
+            <p>{t("Главный")}</p>
           </li>
         </NavLink>
         <NavLink
@@ -112,7 +134,7 @@ export default function Navbar() {
                 className="svg-color"
               />
             </svg>{" "}
-            <p>Yangiliklar Lentasi</p>
+            <p>{t("Новости")}</p>
           </li>
         </NavLink>
         <NavLink
@@ -138,7 +160,7 @@ export default function Navbar() {
                 />
                 <path
                   d="M19 4H15C14.4477 4 14 4.44772 14 5V9C14 9.55228 14.4477 10 15 10H19C19.5523 10 20 9.55228 20 9V5C20 4.44772 19.5523 4 19 4Z"
-                  stroke="black"
+                  
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -161,29 +183,20 @@ export default function Navbar() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <p>Ruknlar</p>
+              <p>{t("Cтолбцы")}</p>
             </div>
             <i className="bx bx-chevron-right"></i>
           </li>
 
           <div className="active-ul">
-            <div>
+            {data.map((item) => (
+              <div key={item.id}>
               <div></div>
-              <p>Birinchi Rukn</p>
+              <p>{item.name_uz}</p>
             </div>
-            <div>
-              <div></div>
-              <p>Birinchi Rukn</p>
-            </div>
-
-            <div>
-              <div></div>
-              <p>Birinchi Rukn</p>
-            </div>
-            <div>
-              <div></div>
-              <p>Birinchi Rukn</p>
-            </div>
+            ))}
+            
+            
           </div>
         </NavLink>
         <NavLink
@@ -231,7 +244,7 @@ export default function Navbar() {
                 className="svg-color"
               />
             </svg>
-            <p>Audio Xabarlar</p>
+            <p>{t("Звуковые")}</p>
           </li>
         </NavLink>
         <NavLink
@@ -263,14 +276,15 @@ export default function Navbar() {
                 className="svg-color"
               />
             </svg>
-            <p>Video Xabarlar</p>
+            <p>{t("Видео сообщения")}</p>
           </li>
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/hududlar"
         >
-          <li>
+          <li className="alone-li">
+            <div>
             <svg
               width="24"
               height="24"
@@ -304,39 +318,19 @@ export default function Navbar() {
               />
             </svg>
 
-            <p>Hududlar</p>
+            <p>{t("Регионы")}</p>
+            </div>
+            <i className="bx bx-chevron-right"></i>
           </li>
           <div className="globe-absolute">
-            <p>
-              <span></span>Samarqand
+            {region.map((item) => (
+              <p key={item.id}>
+              <span></span>{item.name}
+
             </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
-            <p>
-              <span></span>Samarqand
-            </p>
+            ))}
+            
+            
           </div>
         </NavLink>
       </ul>

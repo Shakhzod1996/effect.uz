@@ -3,6 +3,7 @@
   min-height: 705px;
   background-color: inherit;
   padding-top: 30px;
+  background-color: #f4f9f8;
 }
 
 .logo-div {
@@ -21,15 +22,22 @@
   color: #072d4b;
   font-weight: 400;
   font-size: 15px;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   width: 100% !important;
 }
-
 
 .navbar-ul > a:hover li {
   background-color: #2f9ef81e !important;
   color: #2f9ff8;
-} 
+}
+
+.navbar-ul > a:hover li > p {
+  color: #2f9ff8;
+}
+
+.navbar-ul > a:hover li > div p {
+  color: #2f9ff8;
+}
 
 .navbar-ul > a > li {
   padding: 16px;
@@ -39,7 +47,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  color: #072D4B !important;
+  color: #072d4b !important;
 }
 
 .alone-li {
@@ -59,16 +67,14 @@
 
 .alone-li > i {
   font-size: 22px;
-  color: #072D4B;
+  color: #072d4b;
   transform: rotate(0);
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
-
 
 .navbar-ul > a > li > svg {
   margin-right: 15px;
   color: red !important;
-  
 }
 
 .active-nav > li {
@@ -79,29 +85,27 @@
 .active-nav > li > i {
   color: #2f9ff8 !important;
   transform: rotate(90deg);
-
 }
 
 .active-nav > li > p {
   color: #2f9ff8;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .active-nav > li > div > p {
   color: #2f9ff8;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
-.globe-absolute  {
-  padding-left: 50px;
+.globe-absolute {
+  padding-left: 100px;
   overflow: hidden;
   height: 0;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
-.navbar-ul > a:hover .globe-absolute  {
-  display: block;
-  height: 300px;
+.active-nav .globe-absolute {
+  height: 470px;
 }
 
 .globe-absolute > p {
@@ -109,7 +113,6 @@
   display: flex;
   align-items: center;
   padding: 5px;
-  
 }
 
 .globe-absolute > p > span {
@@ -117,12 +120,12 @@
   height: 2px;
   background-color: #2f9ff8;
   margin-right: 10px;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .svg-color {
-  stroke: #072D4B !important;
-  transition: all .4s ease;
+  stroke: #072d4b !important;
+  transition: all 0.4s ease;
 }
 
 .globe-absolute > p:hover span {
@@ -135,22 +138,22 @@
 .active-ul {
   overflow: hidden;
   height: 0;
-  transition: all .4s ease;
-  margin-left: 40px !important;
+  transition: all 0.4s ease;
+  padding-left: 100px !important;
 }
 
 .active-nav .active-ul {
-  height: 150px;
-  transition: all .4s ease;
+  /* min-height: 250px; */
+  height: 350px;
+  transition: all 0.4s ease;
   margin-bottom: 10px;
-  
 }
 
-.active-ul >div  {
+.active-ul > div {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   padding: 5px;
 }
 
@@ -159,18 +162,13 @@
   height: 2px !important;
   margin-right: 5px;
   background-color: #2f9ff8;
-  transition: all .4s ease;
-
+  transition: all 0.4s ease;
 }
 
-.active-ul > div>p {
-  transition: all .4s ease;
+.active-ul > div > p {
+  transition: all 0.4s ease;
 }
 
-.active-ul > div:hover >div {
+.active-ul > div:hover > div {
   width: 22px;
 }
-
-
-
-

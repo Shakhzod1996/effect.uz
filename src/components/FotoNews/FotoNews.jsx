@@ -7,16 +7,18 @@ import "swiper/css/pagination";
 import slide1 from "../../assets/images/slide1.jfif";
 import slide2 from "../../assets/images/slide2.jfif";
 import slide3 from "../../assets/images/slide3.jfif";
+import { useTranslation } from "react-i18next";
 
 // import required modules
 import { Pagination } from "swiper";
 
 export default function FotoNews() {
+  const {t} = useTranslation()
   return (
     <div className="foto-news">
       <div className="foto-news__header">
-        <h3>Foto-yangiliklar</h3>
-        <button>Bulimga utish</button>
+        <h3>{t("Фото новости")}</h3>
+        <button>{t("Перейти в раздел")}</button>
       </div>
 
       <Swiper

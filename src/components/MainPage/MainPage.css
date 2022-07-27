@@ -1,12 +1,14 @@
 .main-page {
   padding-top: 20px;
-  width: 771px
+  width: 771px;
+  background-color: #F4F9F8;
 
 }
 
 .last-news {
   margin-top: 40px;
   margin-bottom: 40px;
+  background-color: #F4F9F8 !important;
 }
 
 .last-news-title {
@@ -18,6 +20,7 @@
 .swiper {
   width: 100%;
   height: 100%;
+  background-color: #F4F9F8;
 }
 
 .swiper-slide {
@@ -42,6 +45,9 @@
   font-size: 15px;
   cursor: pointer;
   transition: all .4s ease;
+  /* min-width: 100px; */
+  white-space: nowrap;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
 }
 
 .swiper-slide:hover {
@@ -54,20 +60,7 @@
   margin-top: 20px;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: #fff !important;
-    fill: #fff !important;
-    stroke: #fff !important;
-    background-color: #2F9FF8;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50% ;
-    
-}
+
 
 .for-width {
   width: 60% !important;
@@ -81,9 +74,10 @@
 .img-container-flex {
   width: 100%;
   height: 493px;
-  background-color: rgb(250, 250, 250);
-  margin-top: 15px;
+  background-color: #fff;
+  margin-top: 15px !important;
   padding: 10px;
+  
 }
 
 .img-container-flex {
@@ -155,6 +149,7 @@
   margin-bottom: 15px;
   background-color: #fff;
   transition: all .4s ease;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .right-img-items:hover {

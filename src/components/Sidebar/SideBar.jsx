@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./sidebar.css";
 import sun from "../../assets/images/sun.png";
 import moon from "../../assets/images/moon.png";
 import sunBig from "../../assets/images/sun-big.png";
 import feather from "../../assets/images/feather.png";
 import file from "../../assets/images/file-text.png";
-import cart from "../../assets/images/cart.png";
 import gift from '../../assets/images/gift.png'
+import i18n from "../../i18n";
+import { useTranslation } from "react-i18next";
+import SideItem from "./SideItem/SideItem";
+
 
 
 export default function SideBar() {
   const eight = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [lang, setLang] = useState("")
+  const {t} = useTranslation()
+
+  
+
+  useEffect(() => {
+    switch(lang) {
+      case "uz":
+        i18n.changeLanguage(lang)
+        case "ru":
+        i18n.changeLanguage(lang)
+
+    }
+  }, [lang])
   return (
     <div className="sidebar">
       <div className="moon-div-flex">
@@ -24,9 +41,9 @@ export default function SideBar() {
         </div>
 
         <div className="moon-right">
-          <select>
-            <option value="uzb">O'zbek</option>
-            <option value="rus">Russ</option>
+          <select onChange={(e)=> setLang(e.target.value)}>
+            <option value="uz">O'zbek</option>
+            <option value="ru">Russ</option>
           </select>
         </div>
       </div>
@@ -63,29 +80,23 @@ export default function SideBar() {
       <div className="mobile-muhbir">
         <div className="mobile-muhbir-header">
           <img src={feather} alt="img" />
-          <p>Mobil muhbirga aylaning!</p>
+          <p>{t("Станьте мобильным репортером!")}</p>
         </div>
 
         <div className="muhmir-desc">
-          <p>Masofadan bizning muhbirga aylaning !</p>
-          <button>Batafsil</button>
+          <p>{t("Станьте нашим корреспондентом удаленно")}</p>
+          <button>{t("Подробный")}</button>
         </div>
       </div>
 
       <div className="kup-uqilgan">
         <div className="kup-uqilgan-header">
           <img src={file} alt="img" />
-          <p>Eng kup uqilgan</p>
+          <p>{t("Самые читаемые")}</p>
         </div>
         {eight.map((item) => {
           return (
-            <div className="kup-uqilgan-item" key={item}>
-              <span><img src={cart} alt="img" /> 11:45 | 13.07.2022</span>
-              <p>
-                The price of petrol remained unchanged on July 6 after reaching
-                a new record high on.
-              </p>
-            </div>
+            <SideItem key={item} />
           );
         })}
       </div>

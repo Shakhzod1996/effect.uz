@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import "./MainPage.css";
 import img1 from "../../assets/images/big-img.jfif";
 import tex from "../../assets/images/tex.png";
 import bugun from "../../assets/images/bugun.png";
-import insta from "../../assets/images/insta.png";
 import gift from "../../assets/images/gift.png";
-import pab from "../../assets/images/pub.jfif";
-import cart from "../../assets/images/cart.png";
-import mess from "../../assets/images/mess.png";
+import API from "../../API/API";
+import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,27 +16,45 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation } from "swiper";
+import AdverItem from "./AdverItem/AdverItem";
+import NewsItem from "./NewsItem/NewsItem";
 
 export default function MainPage() {
+
+  const {t} = useTranslation()
+  const [data, setData] = useState([]);
+  const [newsFour, setNewsFour] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const category = await API.category();
+      const newsFour = await API.newsFour(4);
+
+      setData(category.data);
+      setNewsFour(newsFour.data)
+
+    } catch (error) {}
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const four = [1, 2, 3, 4];
   const six = [1, 2, 3, 4, 5, 6];
+
+  console.log(newsFour);
+
   return (
     <div className="main-page">
         <Header />
 
         <div className="last-news">
-          <h2 className="last-news-title">So'ngi Yangiliklar</h2>
+          <h2 className="last-news-title">{t("Последние новости")}</h2>
           <div className="btn-sliders">
             <Swiper slidesPerView={8} spaceBetween={10} className="mySwiper">
-              <SwiperSlide className="act">Barchasi</SwiperSlide>
-              <SwiperSlide>Siyosat</SwiperSlide>
-              <SwiperSlide>Jamiyat</SwiperSlide>
-              <SwiperSlide>Sport</SwiperSlide>
-              <SwiperSlide>Iqtisod</SwiperSlide>
-              <SwiperSlide>Texnologiya</SwiperSlide>
-              <SwiperSlide>Ilm-fan</SwiperSlide>
-              <SwiperSlide>Turli-xil</SwiperSlide>
-              <SwiperSlide>boshqalar</SwiperSlide>
+              {data.map((item) => (
+                <SwiperSlide key={item.id} >{item.name_uz}</SwiperSlide>
+              ))}
+              
             </Swiper>
           </div>
 
@@ -71,18 +87,7 @@ export default function MainPage() {
             <div className="right-img-con">
               {four.map((item) => {
                 return (
-                  <div className="right-img-items" key={item}>
-                    <div>
-                      <p>
-                        <img src={cart} alt="" />
-                        <span>11:45 | 13.07.2022</span>{" "}
-                      </p>
-                      <h4>
-                        Card hover bo’lganda box-shadow o’zgarishi va color
-                      </h4>
-                    </div>
-                    <img src={insta} alt="img" />
-                  </div>
+                  <AdverItem key={item} item={item} />
                 );
               })}
             </div>
@@ -108,29 +113,13 @@ export default function MainPage() {
         <div className="technology-grid">
           {six.map((item) => {
             return (
-              <div key={item} className="technology-item">
-                <p>Technology</p>
-
-                <div>
-                  <h4>Avvalgi kun xabarlari uchun sana ham chiqib turadi.</h4>
-                  <div className="izoh-content">
-                    <p>
-                      <img src={cart} alt="" /> 11:45 |{" "}
-                    </p>{" "}
-                    <p>
-                      <img src={mess} alt="" /> 12 izoh
-                    </p>
-                  </div>
-                </div>
-
-                <img src={pab} alt="img" className="pub" />
-              </div>
+              <NewsItem key={item} />
             );
           })}
         </div>
 
         <div className="all-news-div">
-          <button>Barcha yangiliklar</button>
+          <button>{t("Все новости")}</button>
         </div>
     </div>
   );
