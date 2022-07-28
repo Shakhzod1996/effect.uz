@@ -1,0 +1,237 @@
+.audio-news {
+  padding-top: 20px;
+  width: 771px;
+  background-color: #f4f9f8;
+}
+
+.audio-header {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.audio-header > h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #072d4b;
+}
+
+.audio-player-div {
+  width: 100%;
+  height: 163px;
+  background-color: #fff;
+  margin-top: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px 40px;
+  border-radius: 4px;
+}
+
+.audio-player-div > h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #072d4b;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #2c3e50;
+}
+
+.player-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.player-flex > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-arr-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .4s ease;
+}
+
+.small-arr-btn:hover {
+  transform: scale(1.05);
+}
+
+.small-arr-btn > i {
+  font-size: 25px;
+}
+
+.big-play-center {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .4s ease;
+
+}
+
+.big-play-center:hover {
+  transform: scale(1.05);
+}
+.big-play-center > i {
+  font-size: 38px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* background-color: red; */
+}
+
+.player-range-div > p {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.long-range {
+  width: 250px;
+  height: 5px;
+  cursor: pointer;
+  color: #0768B5;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.short-range {
+  height: 5px;
+  width: 80px;
+}
+
+.audio-container {
+  width: 100%;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.audio-item {
+  display: flex;
+  padding: 15px 20px 20px;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 20px;
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-item > img {
+  width: 79px;
+  height: 79px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 26px;
+}
+
+.audio-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.audio-item:hover > .audio-item-desc > h3 {
+  color: #2F9FF8 !important;
+}
+
+.audio-item-desc > h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: all .4s ease;
+}
+
+.audio-item-desc-flex {
+  display: flex;
+  align-items: center;
+}
+
+.audio-item-desc-flex > div {
+  display: flex;
+  align-items: center;
+}
+
+.audio-item-desc-flex > div:first-child {
+  margin-right: 22px;
+}
+
+.audio-item-desc-flex > div > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.audio-item-desc-flex > div > p {
+  font-size: 12px;
+  color: #072e4b98;
+}
+
+.audio-item-desc-btns > button {
+  padding: 5px 11px;
+  background-color:#2f9ef83b;
+  color: #2F9FF8;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.vawe {
+  width: 169px !important;
+  position: absolute;
+  right: -30px;
+  bottom: -35px;
+  opacity: 0;
+  transition: all .4S ease;
+}
+
+.audio-item:hover .vawe {
+  opacity: 1;
+}
+
+.yana-yuklash-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.yana-yuklash-div > button {
+  width: 148px;
+  height: 38px;
+  border-radius: 4px;
+  border: 2px solid #2F9FF8;
+  color: #072d4b;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all .4s ease;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.yana-yuklash-div > button:hover {
+  background-color: #2F9FF8;
+  color: #fff;
+}
+

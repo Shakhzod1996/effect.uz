@@ -333,6 +333,19 @@ export default function Navbar() {
             
           </div>
         </NavLink>
+
+        <NavLink to="/advers" className={({ isActive }) => (isActive ? "active-nav" : undefined)}>
+        <li>
+            
+            <p>{t("Реклама")}</p>
+          </li>
+        </NavLink>
+        <NavLink to="/takliflar" className={({ isActive }) => (isActive ? "active-nav" : undefined)}>
+        <li>
+            
+            <p>{t("Предложение")}</p>
+          </li>
+        </NavLink>
       </ul>
     </div>
   );

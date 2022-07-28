@@ -10,6 +10,13 @@ const headers = {
 // ? POST REQUEST
 const LOGIN_URL = "https://simply.uz/api/login";
 const NEWS_END = "https://simply.uz/api/news-end?count";
+const COME_URL = "https://simply.uz/api/come";
+const ADVERT_URL = "https://simply.uz/api/advert";
+const COMMENT_URL = "https://simply.uz/api/comment";
+const RESEPTION_URL = "https://simply.uz/api/reception";
+const STAR_URL = "https://simply.uz/api/star";
+
+
 
 // ?GET REQUEST
 const CATEGORY_URL = "https://simply.uz/api/category";
@@ -21,7 +28,7 @@ const NEW_URL = "https://simply.uz/api/new?id";
 const API = {
   // ?POST METHODS
   login: (params) => axios.post(LOGIN_URL, params),
-  newsFour: (num) => axios.post(`${NEWS_END}=${num}`, headers),
+  newsFour: (params) => axios.post(`${NEWS_END}`, params, headers),
 
   // ?GET METHODS
   category: () => axios.get(CATEGORY_URL, headers),

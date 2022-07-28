@@ -7,6 +7,7 @@ import bugun from "../../assets/images/bugun.png";
 import gift from "../../assets/images/gift.png";
 import API from "../../API/API";
 import { useTranslation } from "react-i18next";
+import {Link} from 'react-router-dom'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -24,24 +25,27 @@ export default function MainPage() {
   const {t} = useTranslation()
   const [data, setData] = useState([]);
   const [newsFour, setNewsFour] = useState([]);
+  const [newsRest, setNewsRest] = useState([]);
+
+
+  const params = {
+    count: 4
+  }
 
   const fetchData = async () => {
     try {
       const category = await API.category();
-      const newsFour = await API.newsFour(4);
+      const newsEnd = await API.newsFour(params)
+      const newsRest = await API.news()
 
       setData(category.data);
-      setNewsFour(newsFour.data)
-
+      setNewsFour(newsEnd.data.items.slice(0, params.count))
+      setNewsRest(newsRest.data.items)
     } catch (error) {}
   };
   useEffect(() => {
     fetchData();
   }, []);
-  const four = [1, 2, 3, 4];
-  const six = [1, 2, 3, 4, 5, 6];
-
-  console.log(newsFour);
 
   return (
     <div className="main-page">
@@ -60,7 +64,9 @@ export default function MainPage() {
 
           <div className="img-container-flex">
             <div className="left-img-con">
+              <div className="left-img-container-one">
               <img src={img1} alt="img" />
+              </div>
 
               <div className="tex-header-flex">
                 <div>
@@ -85,9 +91,11 @@ export default function MainPage() {
               </p>
             </div>
             <div className="right-img-con">
-              {four.map((item) => {
+              {newsFour.map((item) => {
                 return (
-                  <AdverItem key={item} item={item} />
+                  <Link to={`/news/${item.id}`} className="news-a" key={item.id}>
+                  <AdverItem item={item} />
+                  </Link>
                 );
               })}
             </div>
@@ -111,9 +119,11 @@ export default function MainPage() {
         </div>
 
         <div className="technology-grid">
-          {six.map((item) => {
+          {newsRest.map((item) => {
             return (
-              <NewsItem key={item} />
+              <Link className="news-a" key={item.id} to={`/news/${item.id}`} >
+              <NewsItem item={item} />
+              </Link>
             );
           })}
         </div>

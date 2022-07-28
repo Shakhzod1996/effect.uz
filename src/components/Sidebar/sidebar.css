@@ -55,14 +55,29 @@
   margin-top: 37px;
   /* float: right; */
   margin-bottom: 15px;
+  justify-content: right;
 }
+
 
 .boxes > div {
   width: 40px;
   height: 40px;
   border-radius: 5px;
   background-color: #D9D9D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
+
+.boxes > div> svg {
+  transition: all .4s ease;
+  z-index: 444;
+}
+
+.boxes > div:hover > svg {
+  transform: scale(1.05);
+} 
 
 .wether-div-1 {
   margin-top: 15px;
@@ -98,6 +113,9 @@
   border: none;
   cursor: pointer;
   transition: all .4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 

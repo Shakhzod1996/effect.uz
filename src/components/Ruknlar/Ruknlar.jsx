@@ -9,10 +9,10 @@ import insta from "../../assets/images/insta.png";
 import gift from "../../assets/images/gift.png";
 import pab from "../../assets/images/pub.jfif";
 import cart from "../../assets/images/cart.png";
-import mess from "../../assets/images/mess.png";
 import pub from "../../assets/images/pub.jfif";
 import mes from "../../assets/images/mess.png";
 import clock from "../../assets/images/clock.png";
+import { useTranslation } from "react-i18next";
 
 // Import Swiper styles
 import "swiper/css";
@@ -20,6 +20,7 @@ import "swiper/css/pagination";
 
 
 export default function () {
+  const { t } = useTranslation();
   const four = [1, 2, 3, 4];
   const six = [1, 2, 3, 4, 5, 6];
   return (
@@ -27,24 +28,14 @@ export default function () {
       <Header />
 
       <div className="last-news">
-        <h2 className="last-news-title">Yangiliklar Lentisi</h2>
-        <div className="btn-sliders">
-          <Swiper slidesPerView={8} spaceBetween={10} className="mySwiper">
-            <SwiperSlide className="act">Barchasi</SwiperSlide>
-            <SwiperSlide>Siyosat</SwiperSlide>
-            <SwiperSlide>Jamiyat</SwiperSlide>
-            <SwiperSlide>Sport</SwiperSlide>
-            <SwiperSlide>Iqtisod</SwiperSlide>
-            <SwiperSlide>Texnologiya</SwiperSlide>
-            <SwiperSlide>Ilm-fan</SwiperSlide>
-            <SwiperSlide>Turli-xil</SwiperSlide>
-            <SwiperSlide>boshqalar</SwiperSlide>
-          </Swiper>
-        </div>
+        <h2 className="last-news-title">{t("Политика")}</h2>
+        
 
         <div className="img-container-flex">
             <div className="left-img-con">
+              <div className="left-img-container-one">
               <img src={img1} alt="img" />
+              </div>
 
               <div className="tex-header-flex">
                 <div>
@@ -178,7 +169,7 @@ export default function () {
           </div>
 
           <div className="btn-container">
-            <button>Yana yuklash</button>
+            <button>{t("Перезагрузить")}</button>
           </div>
         </div>
       </div>
