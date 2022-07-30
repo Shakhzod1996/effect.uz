@@ -16,9 +16,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Navigation } from "swiper";
 import AdverItem from "./AdverItem/AdverItem";
-import NewsItem from "./NewsItem/NewsItem";
+import NewsItem from "./NewsItem/NewsItems";
 
 export default function MainPage() {
 
@@ -37,7 +36,7 @@ export default function MainPage() {
       const category = await API.category();
       const newsEnd = await API.newsFour(params)
       const newsRest = await API.news()
-
+      
       setData(category.data);
       setNewsFour(newsEnd.data.items.slice(0, params.count))
       setNewsRest(newsRest.data.items)
@@ -47,9 +46,12 @@ export default function MainPage() {
     fetchData();
   }, []);
 
+  const [active, setActive] = useState(data[0])
+
+
   return (
     <div className="main-page">
-        <Header />
+        <Header  />
 
         <div className="last-news">
           <h2 className="last-news-title">{t("Последние новости")}</h2>
@@ -93,7 +95,7 @@ export default function MainPage() {
             <div className="right-img-con">
               {newsFour.map((item) => {
                 return (
-                  <Link to={`/news/${item.id}`} className="news-a" key={item.id}>
+                  <Link to={`/yangiliklar/${item.id}`} className="news-a" key={item.id}>
                   <AdverItem item={item} />
                   </Link>
                 );
@@ -121,8 +123,8 @@ export default function MainPage() {
         <div className="technology-grid">
           {newsRest.map((item) => {
             return (
-              <Link className="news-a" key={item.id} to={`/news/${item.id}`} >
-              <NewsItem item={item} />
+              <Link className="news-a" key={item.id} to={`/yangiliklar/${item.id}`} >
+              {/* <NewsItem item={item} /> */}
               </Link>
             );
           })}

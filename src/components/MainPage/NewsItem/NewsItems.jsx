@@ -4,6 +4,7 @@ import pab from "../../../assets/images/pub.jfif";
 import mess from "../../../assets/images/mess.png";
 
 export default function NewsItem({item}) {
+
   return (
     <div  className="technology-item">
       <p>{item.category_id}</p>

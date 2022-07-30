@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./sidebar.css";
 import sun from "../../assets/images/sun.png";
 import moon from "../../assets/images/moon.png";
@@ -9,11 +9,57 @@ import gift from "../../assets/images/gift.png";
 import i18n from "../../i18n";
 import { useTranslation } from "react-i18next";
 import SideItem from "./SideItem/SideItem";
+import API from "../../API/API";
+import axios from "axios";
+import { Link, useLocation } from "react-router-dom";
 
-export default function SideBar() {
-  const eight = [1, 2, 3, 4, 5, 6, 7, 8];
+export default function SideBar({hideSide, setHideSide}) {
+  const location = useLocation()
+  const regions = [
+    { id: 1, name: "Samarqand", temp: 21 },
+    { id: 2, name: "Qarshi", temp: 22 },
+    { id: 3, name: "Toshkent", temp: 23 },
+    { id: 4, name: "Buxoro", temp: 24 },
+    { id: 5, name: "Navoiy", temp: 25 },
+    { id: 6, name: "Nukus", temp: 26 },
+    { id: 7, name: "Sirdaryo", temp: 27 },
+    { id: 8, name: "Urgut", temp: 28 },
+
+    { id: 9, name: "Juma", temp: 29 },
+    { id: 10, name: "Yaman", temp: 31 },
+  ];
+  const [index, setIndex] = useState(0);
+  const { name, temp } = regions[index];
   const [lang, setLang] = useState("");
+  const [news, setNews] = useState([]);
+
+  const [weather, setWeather] = useState([]);
   const { t } = useTranslation();
+
+  const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=2a2fbcce83edbff63a879e8e1e65b62b`;
+
+  const weatherHandler = async () => {
+    const response = await axios.get(WEATHER_URL);
+    setWeather(response.data);
+  };
+
+  const fetchData = async () => {
+    const data = await API.news();
+    setNews(data.data.items);
+  };
+
+  useEffect(() => {
+    weatherHandler();
+    fetchData();
+  }, []);
+
+  const leftClickedHandler = () => {
+    index < regions.length - 1 ? setIndex(index + 1) : setIndex(0);
+  };
+
+  const rightClickedHandler = () => {
+    index < 1 ? setIndex(regions.length - 1) : setIndex(index - 1);
+  };
 
   useEffect(() => {
     switch (lang) {
@@ -23,6 +69,7 @@ export default function SideBar() {
         i18n.changeLanguage(lang);
     }
   }, [lang]);
+
   return (
     <div className="sidebar">
       <div className="moon-div-flex">
@@ -89,24 +136,24 @@ export default function SideBar() {
         </div>
         <div></div>
       </div>
-
-      <div className="wether-div-1">
+    <div className={`${hideSide? "dis-none" : null}`}>
+    <div className="wether-div-1">
         <div className="weather-header-flex">
-          <p>Qashqadaryo, Qarshi</p>
+          <p>Uzbekistan / {name}</p>
           <div className="btns-flex-weather">
-            <button>
+            <button onClick={leftClickedHandler}>
               <i className="bx bxs-chevron-left"></i>
             </button>
-            <button>
+            <button onClick={rightClickedHandler}>
               <i className="bx bxs-chevron-right"></i>
             </button>
           </div>
         </div>
         <hr className="weather-hr" />
-        <div>
+        <div className="div-container-slider">
           <div className="quyow-div">
-            <p>Quyoshli</p>
-            <p className="big-p">31'C / 25'C</p>
+            <p>{name}</p>
+            <p className="big-p">{temp}'C</p>
           </div>
           <img src={sunBig} alt="sun" />
         </div>
@@ -129,9 +176,19 @@ export default function SideBar() {
           <img src={file} alt="img" />
           <p>{t("Самые читаемые")}</p>
         </div>
-        {eight.map((item) => {
-          return <SideItem key={item} />;
-        })}
+        <div className="sidebar-content">
+          {news.map((item) => {
+            return (
+              <Link
+                className="news-a"
+                key={item.id}
+                to={`yangiliklar/${item.id}`}
+              >
+                <SideItem item={item} />
+              </Link>
+            );
+          })}
+        </div>
       </div>
 
       <div className="premium1">
@@ -147,6 +204,8 @@ export default function SideBar() {
           <button>Upgrade</button>
         </div>
       </div>
+    </div>
+ 
     </div>
   );
 }

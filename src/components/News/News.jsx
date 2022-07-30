@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import "./News.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,14 +12,27 @@ import "swiper/css/pagination";
 // import required modules
 import { Navigation } from "swiper";
 import NewsItem from "./NewsItem/NewsItem";
+import API from "../../API/API";
+import { Link } from "react-router-dom";
 
 export default function News() {
 
+  const [news, setNews] = useState([])
+  const [status, setStatus] = useState(false)
+
   const {t} = useTranslation()
 
-  const [status, setStatus] = useState(false)
+  const fetchData = async () => {
+    const response = await API.news()
+    setNews(response.data.items)
+  }
+
   const four = [1, 2, 3, 4];
   const six = [1, 2, 3, 4, 5, 6];
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <div className="news">
@@ -35,9 +48,11 @@ export default function News() {
 
           <div className="news-cards-flex">
             <div className="right-news-container">
-              {four.map((item) => {
+              {news.map((item) => {
                 return (
-                  <NewsItem key={item} />
+                  <Link className="news-a" key={item.id} to={`/yangiliklar/${item.id}`}>
+                  <NewsItem key={item.id} item={item} />
+                  </Link>
                 );
               })}
             </div>
@@ -50,9 +65,11 @@ export default function News() {
 
           <div className="news-cards-flex">
             <div className="right-news-container">
-              {six.map((item) => {
+              {news.map((item) => {
                 return (
-                  <NewsItem key={item} />
+                  <Link  className="news-a" key={item.id} to={`/yangiliklar/${item.id}`}>
+                  <NewsItem  item={item} />
+                  </Link>
                 );
               })}
             </div>

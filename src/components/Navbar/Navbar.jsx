@@ -11,7 +11,7 @@ import globe from "../../assets/images/globe.svg";
 import API from "../../API/API";
 import { useTranslation } from "react-i18next";
 
-export default function Navbar() {
+export default function Navbar({setHideSide}) {
   const {t} = useTranslation()
 
   const [data, setData] = useState([]);
@@ -34,16 +34,16 @@ export default function Navbar() {
     <div className="navbar">
       <div className="logo-div">
         <NavLink to="/">
-          <img src={logo} alt="img" />
+          <img src={logo} alt="img"  onClick={()=> setHideSide(false)} />
         </NavLink>
       </div>
 
       <ul className="navbar-ul">
-        <NavLink
+        <NavLink 
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/"
         >
-          <li>
+          <li onClick={()=> setHideSide(false)}>
             <svg
               width="24"
               height="24"
@@ -76,7 +76,7 @@ export default function Navbar() {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/yangiliklar"
         >
-          <li>
+          <li  onClick={()=> setHideSide(false)}>
             {" "}
             <svg
               width="24"
@@ -141,7 +141,7 @@ export default function Navbar() {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/ruknlar"
         >
-          <li className="alone-li">
+          <li className="alone-li"  onClick={()=> setHideSide(false)}>
             <div>
               <svg
                 width="24"
@@ -203,7 +203,7 @@ export default function Navbar() {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/audiolar"
         >
-          <li>
+          <li  onClick={()=> setHideSide(false)}>
             <svg
               width="24"
               height="24"
@@ -251,7 +251,7 @@ export default function Navbar() {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/videolar"
         >
-          <li>
+          <li  onClick={()=> setHideSide(false)}>
             <svg
               width="24"
               height="24"
@@ -283,7 +283,7 @@ export default function Navbar() {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/hududlar"
         >
-          <li className="alone-li">
+          <li className="alone-li"  onClick={()=> setHideSide(false)}>
             <div>
             <svg
               width="24"
@@ -335,13 +335,13 @@ export default function Navbar() {
         </NavLink>
 
         <NavLink to="/advers" className={({ isActive }) => (isActive ? "active-nav" : undefined)}>
-        <li>
+        <li  onClick={()=> setHideSide(false)}>
             
             <p>{t("Реклама")}</p>
           </li>
         </NavLink>
         <NavLink to="/takliflar" className={({ isActive }) => (isActive ? "active-nav" : undefined)}>
-        <li>
+        <li  onClick={()=> setHideSide(false)}>
             
             <p>{t("Предложение")}</p>
           </li>
