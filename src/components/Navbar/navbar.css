@@ -16,6 +16,18 @@
   margin-top: 45px;
 }
 
+.header-fixed-small {
+  display: none;  
+  width: 100%;
+  height: 51px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 2px 0px;
+  z-index: 999;
+}
+
 .navbar-ul > a {
   text-decoration: none;
   transition: all 0.4s ease;
@@ -23,7 +35,7 @@
   font-weight: 400;
   font-size: 15px;
   transition: all 0.4s ease;
-  width: 100% !important;
+  
 }
 
 .navbar-ul > a:hover li {

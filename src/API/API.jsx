@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const token = "LAEQ2GUBlv8tmxCdFRvq0NhiQrGgBJlEGifjvBz4e0ZHeJZ6Dg";
+const token = "";
 
-// ?Currency Request
+// ?Currency RequestLAEQ2GUBlv8tmxCdFRvq0NhiQrGgBJlEGifjvBz4e0ZHeJZ6Dg
 const Currency_Api_USD =
   "https://api.fastforex.io/fetch-all?api_key=8f88f1b08d-a22ea0a6b7-rfs5m2";
 const Currency_Api_EUR =
@@ -34,6 +34,8 @@ const PROVENCE_URL = "https://simply.uz/api/provence";
 const CONFIG_URL = "https://simply.uz/api/config";
 const NEWS_URL = "https://simply.uz/api/news-all";
 const NEW_URL = "https://simply.uz/api/new?id";
+const MOST_READ = "https://simply.uz/api/more";
+const VIDEOS = " https://simply.uz/api/news-video"
 
 const API = {
   // ?POST METHODS
@@ -47,6 +49,10 @@ const API = {
   config: () => axios.get(CONFIG_URL, headers),
   news: () => axios.get(NEWS_URL, headers),
   newItem: (ID) => axios.get(`${NEW_URL}=${ID}`, headers),
+  mostRead: () => axios.get(MOST_READ, headers),
+  videos: () => axios.get(VIDEOS, headers),
+
+
 
   // ?Currency
   currency_USD: () => axios.get(Currency_Api_USD),

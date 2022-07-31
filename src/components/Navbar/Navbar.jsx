@@ -2,29 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./navbar.css";
 import logo from "../../assets/images/Group 121.svg";
 import { NavLink } from "react-router-dom";
-import menu from "../../assets/images/menu.svg";
-import home from "../../assets/images/home.svg";
-import frame from "../../assets/images/Frame.svg";
-import audio from "../../assets/images/lenta.svg";
-import video from "../../assets/images/video.svg";
-import globe from "../../assets/images/globe.svg";
+import men2 from '../../assets/images/menu2.png'
 import API from "../../API/API";
 import { useTranslation } from "react-i18next";
 
-export default function Navbar({setHideSide}) {
-  const {t} = useTranslation()
+export default function Navbar({ setHideSide }) {
+  const { t } = useTranslation();
 
   const [data, setData] = useState([]);
   const [region, setRegion] = useState([]);
-
+  const [regionShow, setRegionShow] = useState(false);
 
   const fetchData = async () => {
     try {
       const category = await API.category();
       const provence = await API.provence();
-      
+
       setData(category.data);
-      setRegion(provence.data)
+      setRegion(provence.data);
     } catch (error) {}
   };
   useEffect(() => {
@@ -32,18 +27,26 @@ export default function Navbar({setHideSide}) {
   }, []);
   return (
     <div className="navbar">
+      <div className="header-fixed-small">
+      <i className='bx bx-search'></i>
+      <NavLink to="/">
+        <img src={logo} alt="img" className="log" onClick={() => setHideSide(false)} />
+      </NavLink>
+        <img src={men2} alt="img" onClick={()=> setRegionShow(!regionShow)} className="menu-icon-small" />
+
+      </div>
       <div className="logo-div">
         <NavLink to="/">
-          <img src={logo} alt="img"  onClick={()=> setHideSide(false)} />
+          <img src={logo} alt="img" onClick={() => setHideSide(false)} />
         </NavLink>
       </div>
 
       <ul className="navbar-ul">
-        <NavLink 
+        <NavLink
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/"
         >
-          <li onClick={()=> setHideSide(false)}>
+          <li onClick={() => setHideSide(false)}>
             <svg
               width="24"
               height="24"
@@ -76,7 +79,7 @@ export default function Navbar({setHideSide}) {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/yangiliklar"
         >
-          <li  onClick={()=> setHideSide(false)}>
+          <li onClick={() => setHideSide(false)}>
             {" "}
             <svg
               width="24"
@@ -141,7 +144,7 @@ export default function Navbar({setHideSide}) {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/ruknlar"
         >
-          <li className="alone-li"  onClick={()=> setHideSide(false)}>
+          <li className="alone-li" onClick={() => setHideSide(false)}>
             <div>
               <svg
                 width="24"
@@ -160,7 +163,6 @@ export default function Navbar({setHideSide}) {
                 />
                 <path
                   d="M19 4H15C14.4477 4 14 4.44772 14 5V9C14 9.55228 14.4477 10 15 10H19C19.5523 10 20 9.55228 20 9V5C20 4.44772 19.5523 4 19 4Z"
-                  
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -188,14 +190,13 @@ export default function Navbar({setHideSide}) {
             <i className="bx bx-chevron-right"></i>
           </li>
 
-          <div className="active-ul">
+          <div className={`active-ul ${regionShow ? "show-regions" : ""}`}>
             {data.map((item) => (
               <div key={item.id}>
-              <div></div>
-              <p>{item.name_uz}</p>
-            </div>
+                <div></div>
+                <p>{item.name_uz}</p>
+              </div>
             ))}
-            
             
           </div>
         </NavLink>
@@ -203,7 +204,7 @@ export default function Navbar({setHideSide}) {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/audiolar"
         >
-          <li  onClick={()=> setHideSide(false)}>
+          <li onClick={() => setHideSide(false)}>
             <svg
               width="24"
               height="24"
@@ -251,7 +252,7 @@ export default function Navbar({setHideSide}) {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/videolar"
         >
-          <li  onClick={()=> setHideSide(false)}>
+          <li onClick={() => setHideSide(false)}>
             <svg
               width="24"
               height="24"
@@ -283,66 +284,70 @@ export default function Navbar({setHideSide}) {
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
           to="/hududlar"
         >
-          <li className="alone-li"  onClick={()=> setHideSide(false)}>
+          <li className="alone-li" onClick={() => setHideSide(false)}>
             <div>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#072D4B"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="svg-color"
-              />
-              <path
-                d="M2 12H22"
-                stroke="#072D4B"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="svg-color"
-              />
-              <path
-                d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
-                stroke="#072D4B"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="svg-color"
-              />
-            </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                  stroke="#072D4B"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="svg-color"
+                />
+                <path
+                  d="M2 12H22"
+                  stroke="#072D4B"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="svg-color"
+                />
+                <path
+                  d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
+                  stroke="#072D4B"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="svg-color"
+                />
+              </svg>
 
-            <p>{t("Регионы")}</p>
+              <p>{t("Регионы")}</p>
             </div>
             <i className="bx bx-chevron-right"></i>
           </li>
           <div className="globe-absolute">
             {region.map((item) => (
               <p key={item.id}>
-              <span></span>{item.name}
-
-            </p>
+                <span></span>
+                {item.name}
+              </p>
             ))}
-            
-            
           </div>
         </NavLink>
 
-        <NavLink to="/advers" className={({ isActive }) => (isActive ? "active-nav" : undefined)}>
-        <li  onClick={()=> setHideSide(false)}>
-            
+        <NavLink
+          id="advers"
+          to="/advers"
+          className={({ isActive }) => (isActive ? "active-nav" : undefined)}
+        >
+          <li onClick={() => setHideSide(false)}>
             <p>{t("Реклама")}</p>
           </li>
         </NavLink>
-        <NavLink to="/takliflar" className={({ isActive }) => (isActive ? "active-nav" : undefined)}>
-        <li  onClick={()=> setHideSide(false)}>
-            
+        <NavLink
+          id="advers"
+          to="/takliflar"
+          className={({ isActive }) => (isActive ? "active-nav" : undefined)}
+        >
+          <li onClick={() => setHideSide(false)}>
             <p>{t("Предложение")}</p>
           </li>
         </NavLink>

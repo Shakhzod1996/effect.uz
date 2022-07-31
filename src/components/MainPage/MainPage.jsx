@@ -26,7 +26,6 @@ export default function MainPage() {
   const [newsFour, setNewsFour] = useState([]);
   const [newsRest, setNewsRest] = useState([]);
 
-
   const params = {
     count: 4
   }

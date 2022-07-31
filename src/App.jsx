@@ -18,13 +18,17 @@ import Muharrir from "./components/Muharrir/Muharrir";
 
 
 export default function App() {
-    const location = useLocation()
   const [posts, setPosts] = useState([]);
+
+  const [videos, setVideos] = useState([]);
 
   const[hideSide, setHideSide] = useState(false);
 
   const fetchData = async () => {
     const data = await API.category()
+
+    const videos = await API.videos()
+    setVideos(videos)
     setPosts(data)
   }
 
@@ -32,8 +36,6 @@ useState(() => {
   fetchData()
 
 }, [])
-
-
 
   return (
     <>

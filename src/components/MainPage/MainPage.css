@@ -73,18 +73,14 @@
 
 .img-container-flex {
   width: 100%;
-  height: 493px;
+  min-height: 493px;
   background-color: #fff;
   margin-top: 15px !important;
   padding: 10px;
-  
-}
-
-.img-container-flex {
   display: flex;
   gap: 15px;
+  
 }
-
 .left-img-con {
   width: 50%;
 }
@@ -136,7 +132,7 @@
   font-weight: 500;
   margin-top: 15px;
   margin-bottom: 10px;
-  width: 85%;
+  /* width: 85%; */
 }
 
 .left-img-con > p {

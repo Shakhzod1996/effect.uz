@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { Pagination } from "swiper";
 
 export default function FotoNews() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <div className="foto-news">
       <div className="foto-news__header">
@@ -22,8 +22,39 @@ export default function FotoNews() {
       </div>
 
       <Swiper
-        slidesPerView={3}
+        // slidesPerView={3}
         spaceBetween={30}
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+
+          1000: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+
+          1100: {
+            slidesPerView: 5,
+            spaceBetween: 15,
+          },
+
+          1200: {
+            slidesPerView: 6,
+            spaceBetween: 15,
+          },
+        }}
         pagination={{
           clickable: true,
         }}
@@ -31,7 +62,7 @@ export default function FotoNews() {
         className="mySwiper1"
       >
         <SwiperSlide className="swipe_item">
-          <img src={slide1} alt="" />
+          <img src={slide1} alt="img" />
           <h4>
             Samsung Galaxy F22 launched in India: Price, features, other details
           </h4>

@@ -31,7 +31,7 @@ export default function SideBar({hideSide, setHideSide}) {
   const [index, setIndex] = useState(0);
   const { name, temp } = regions[index];
   const [lang, setLang] = useState("");
-  const [news, setNews] = useState([]);
+  const [mostRead, setMostRead] = useState([]);
 
   const [weather, setWeather] = useState([]);
   const { t } = useTranslation();
@@ -44,8 +44,8 @@ export default function SideBar({hideSide, setHideSide}) {
   };
 
   const fetchData = async () => {
-    const data = await API.news();
-    setNews(data.data.items);
+    const data = await API.mostRead()
+    setMostRead(data.data);
   };
 
   useEffect(() => {
@@ -177,7 +177,7 @@ export default function SideBar({hideSide, setHideSide}) {
           <p>{t("Самые читаемые")}</p>
         </div>
         <div className="sidebar-content">
-          {news.map((item) => {
+          {mostRead.map((item) => {
             return (
               <Link
                 className="news-a"
