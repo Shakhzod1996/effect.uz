@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const token = "";
+const token = "LAEQ2GUBlv8tmxCdFRvq0NhiQrGgBJlEGifjvBz4e0ZHeJZ6Dg";
 
 // ?Currency RequestLAEQ2GUBlv8tmxCdFRvq0NhiQrGgBJlEGifjvBz4e0ZHeJZ6Dg
 const Currency_Api_USD =
