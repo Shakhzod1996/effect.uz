@@ -41,17 +41,17 @@ export default function FotoNews() {
           },
 
           1000: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 15,
           },
 
           1100: {
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 15,
           },
 
           1200: {
-            slidesPerView: 6,
+            slidesPerView: 3,
             spaceBetween: 15,
           },
         }}

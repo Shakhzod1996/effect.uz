@@ -15,32 +15,29 @@ import AudioNews from "./components/AudioNews/AudioNews";
 import API from "./API/API";
 import Muharrir from "./components/Muharrir/Muharrir";
 
-
-
 export default function App() {
   const [posts, setPosts] = useState([]);
 
   const [videos, setVideos] = useState([]);
 
-  const[hideSide, setHideSide] = useState(false);
+  const [hideSide, setHideSide] = useState(false);
 
   const fetchData = async () => {
-    const data = await API.category()
+    const data = await API.category();
 
-    const videos = await API.videos()
-    setVideos(videos)
-    setPosts(data)
-  }
+    const videos = await API.videos();
+    setVideos(videos);
+    setPosts(data);
+  };
 
-useState(() => {
-  fetchData()
-
-}, [])
+  useState(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
       <div className="main_flex">
-        <Navbar setHideSide={setHideSide}  />
+        <Navbar setHideSide={setHideSide} />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -48,9 +45,14 @@ useState(() => {
           <Route path="/ruknlar" element={<Ruknlar />} />
           <Route path="/audiolar" element={<AudioNews />} />
 
-          <Route path="/yangiliklar/:id" element={<ViewPost setHideSide={setHideSide} hideSide={hideSide} />} />
-          <Route path="yangiliklar/muharrir" element={<Muharrir setHideSide={setHideSide} />} />
-
+          <Route
+            path="/yangiliklar/:id"
+            element={<ViewPost setHideSide={setHideSide} hideSide={hideSide} />}
+          />
+          <Route
+            path="yangiliklar/muharrir"
+            element={<Muharrir setHideSide={setHideSide} />}
+          />
         </Routes>
 
         <SideBar hideSide={hideSide} setHideSide={setHideSide} />
