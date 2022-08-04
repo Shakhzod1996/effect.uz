@@ -33,22 +33,23 @@ const CATEGORY_URL = "https://simply.uz/api/category";
 const PROVENCE_URL = "https://simply.uz/api/provence";
 const CONFIG_URL = "https://simply.uz/api/config";
 const NEWS_URL = "https://simply.uz/api/news-all";
-const NEW_URL = "https://simply.uz/api/new?id";
 const MOST_READ = "https://simply.uz/api/more";
 const VIDEOS = " https://simply.uz/api/news-video"
+const NEW_URL = "https://simply.uz/api/new?id";
 
 const API = {
   // ?POST METHODS
   login: (params) => axios.post(LOGIN_URL, params),
   newsFour: (params) => axios.post(`${NEWS_END}`, params, headers),
   comment: (params) => axios.post(`${COMMENT_URL}`, params, headers),
+  star: (params) => axios.post(`${STAR_URL}`, params, headers),
 
   // ?GET METHODS
   category: () => axios.get(CATEGORY_URL, headers),
   provence: () => axios.get(PROVENCE_URL, headers),
   config: () => axios.get(CONFIG_URL, headers),
   news: () => axios.get(NEWS_URL, headers),
-  newItem: (ID) => axios.get(`${NEW_URL}=${ID}`, headers),
+  newItem: (ID) => axios.get(`${NEW_URL}= ${ID}`, headers),
   mostRead: () => axios.get(MOST_READ, headers),
   videos: () => axios.get(VIDEOS, headers),
 

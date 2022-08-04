@@ -9,30 +9,16 @@ import Footer from "./components/Footer/Footer";
 import { Routes, Route, useLocation } from "react-router-dom";
 import News from "./components/News/News";
 import Ruknlar from "./components/Ruknlar/Ruknlar";
-import ViewPost from "./components/NiewPost/ViewPost";
+import ViewPost from "./components/ViewPost/ViewPost";
 import ScrollToTop from "./components/ScrollToTop";
 import AudioNews from "./components/AudioNews/AudioNews";
 import API from "./API/API";
 import Muharrir from "./components/Muharrir/Muharrir";
+import Videos from "./components/Videos/Videos";
 
 export default function App() {
-  const [posts, setPosts] = useState([]);
-
-  const [videos, setVideos] = useState([]);
-
   const [hideSide, setHideSide] = useState(false);
 
-  const fetchData = async () => {
-    const data = await API.category();
-
-    const videos = await API.videos();
-    setVideos(videos);
-    setPosts(data);
-  };
-
-  useState(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -44,20 +30,19 @@ export default function App() {
           <Route path="/yangiliklar" element={<News />} />
           <Route path="/ruknlar" element={<Ruknlar />} />
           <Route path="/audiolar" element={<AudioNews />} />
+          <Route path="/videolar" element={<Videos />} />
+
 
           <Route
             path="/yangiliklar/:id"
             element={<ViewPost setHideSide={setHideSide} hideSide={hideSide} />}
           />
-          <Route
-            path="yangiliklar/muharrir"
-            element={<Muharrir setHideSide={setHideSide} />}
-          />
+
         </Routes>
 
         <SideBar hideSide={hideSide} setHideSide={setHideSide} />
       </div>
-      <FotoNews />
+      {/* <FotoNews /> */}
       <VideoNews />
 
       <Footer />

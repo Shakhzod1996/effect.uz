@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import "./Muharrir.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import man from "../../assets/images/man.jfif";
 
 export default function Muharrir({ setHideSide }) {
+
+  const {user_id} = useParams()
+  console.log(user_id);
   return (
     <div className="muharrir-container">
       <Header />

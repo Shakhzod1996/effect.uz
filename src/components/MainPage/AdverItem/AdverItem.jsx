@@ -14,7 +14,7 @@ export default function AdverItem({item}) {
         </p>
         <h4>{item.title_uz.substring(0, 45)}...</h4>
       </div>
-      <img src={insta} alt="img" />
+      <img src={item.default_img} alt="img" />
     </div>
   );
 }

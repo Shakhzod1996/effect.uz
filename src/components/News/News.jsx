@@ -4,7 +4,6 @@ import "./News.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
 
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,23 +15,39 @@ import API from "../../API/API";
 import { Link } from "react-router-dom";
 
 export default function News() {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const [news, setNews] = useState([])
-  const [status, setStatus] = useState(false)
-
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const fetchData = async () => {
-    const response = await API.news()
-    setNews(response.data.items)
-  }
+    try {
+      setLoading(false);
 
-  const four = [1, 2, 3, 4];
-  const six = [1, 2, 3, 4, 5, 6];
+      const response = await API.news();
+      setNews(response.data.items);
+      // setNews(newsRest.data);
+
+      setTimeout(() => {
+        setLoading(true);
+      }, 1000);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
+
+  if (!loading) {
+    return (
+      <div className="loading-div">
+        <i className='bx bx-loader'></i>
+      </div>
+    );
+  }
 
   return (
     <div className="news">
@@ -50,8 +65,12 @@ export default function News() {
             <div className="right-news-container">
               {news.map((item) => {
                 return (
-                  <Link className="news-a" key={item.id} to={`/yangiliklar/${item.id}`}>
-                  <NewsItem key={item.id} item={item} />
+                  <Link
+                    className="news-a"
+                    key={item.id}
+                    to={`/yangiliklar/${item.id}`}
+                  >
+                    <NewsItem key={item.id} item={item} />
                   </Link>
                 );
               })}
@@ -67,8 +86,12 @@ export default function News() {
             <div className="right-news-container">
               {news.map((item) => {
                 return (
-                  <Link  className="news-a" key={item.id} to={`/yangiliklar/${item.id}`}>
-                  <NewsItem  item={item} />
+                  <Link
+                    className="news-a"
+                    key={item.id}
+                    to={`/yangiliklar/${item.id}`}
+                  >
+                    <NewsItem item={item} />
                   </Link>
                 );
               })}

@@ -15,6 +15,7 @@ import RuknlarFourItem from "./RuknlarFourItem/RuknlarFourItem";
 export default function () {
   const [newsFour, setNewsFour] = useState([]);
   const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { t } = useTranslation();
   const params = {
@@ -22,18 +23,30 @@ export default function () {
   };
 
   const fetchData = async () => {
+    setLoading(false)
     const data = await API.newsFour(params);
+
     setNewsFour(data.data.items.slice(0, params.count));
 
     const news = await API.news();
-    setNews(data.data.items);
+    setNews(news.data.items);
+    // setNews(newsRest.data);
+    setTimeout(() => {
+      setLoading(true)
+    }, 1000)
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  console.log(news);
+  if (!loading) {
+    return (
+      <div className="loading-div">
+        <i className='bx bx-loader'></i>
+      </div>
+    )
+  }
 
   return (
     <div className="ruknlar">

@@ -5,6 +5,12 @@
   max-width: 771px;
 }
 
+.viewPost > img {
+  width: 771px;
+}
+
+
+
 .each-header {
   margin-top: 40px;
   color: #072d4b;
@@ -41,7 +47,7 @@
 }
 
 .phone-img {
-  width: 100%;
+  width: 771px;
   height: 435px;
   margin-top: 35px;
 }
@@ -54,6 +60,7 @@
   color: #999;
   margin-bottom: 24px !important;
   max-width: 771px;
+  width: 771px;
 }
 
 .top-span-view {
@@ -193,6 +200,11 @@
   font-size: 14px;
   color: #0768b5;
   cursor: pointer;
+  transition: all .4s ease;
+}
+
+.maqola-ulash-right > button:hover {
+  text-decoration: underline;
 }
 
 .izoh-qoldirish-header-flex {
@@ -214,9 +226,23 @@
 
 .izoh-qoldirish-text {
   margin-top: 10px;
-  height: 96px;
-  background-color: #ECF5F8;
+  height: 146px;
   overflow:hidden;
+}
+
+.input_comment {
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+  background-color: #ECF5F8;
+  font-size: 15px; 
+
+}
+
+.input_comment::placeholder {
+  color: #9e9e9e;
 }
 
 .zero-izoh-div {
@@ -297,6 +323,12 @@ transition: all .4s ease;
   margin-bottom: 12px;
 }
 
+.scrolled {
+  overflow-y: scroll;
+  padding: 20px;
+  height: 600px;
+}
+
 .izoh-name-flex > h4 {
   font-size: 17px;
   font-weight: 500;
@@ -342,4 +374,35 @@ transition: all .4s ease;
   background-color: inherit;
   border: none;
   cursor: pointer;
+} 
+
+.loading-div {
+  width: 771px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(0, 0, 0, 0.099); */
+}
+
+
+
+.loading-div > i {
+  font-size: 40px;
+  animation: rotate 5s linear infinite;
+  position: absolute;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);	
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

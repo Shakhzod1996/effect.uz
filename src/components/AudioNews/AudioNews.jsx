@@ -6,6 +6,8 @@ import AudioItem from "./AudioItem/AudioItem";
 
 export default function AudioNews() {
   const { t } = useTranslation();
+const [loading, setLoading] = useState(false);
+
 const eight = [1,2,3,4,5,6,7,8]
   return (
     <div className="audio-news">

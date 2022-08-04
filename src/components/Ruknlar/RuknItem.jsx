@@ -29,11 +29,9 @@ export default function RuknItem({item}) {
 
           <div>
             <p>#{item.category_id}</p>
-            {item.comments.length > 0 ? (
               <p>
-                <img src={mes} alt="img" /> {item.comments.length} izoh
+                <img src={mes} alt="img" /> {item.comment_count} izoh
               </p>
-            ) : ("")}
           </div>
         </div>
         <div className="clock-absolute">
