@@ -11,22 +11,31 @@ import { Link } from "react-router-dom";
 
 import RuknItem from "./RuknItem";
 import RuknlarFourItem from "./RuknlarFourItem/RuknlarFourItem";
+import RuknLeftBig from "./RuknLeftBig";
 
 export default function () {
   const [newsFour, setNewsFour] = useState([]);
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [bigAlone, setBigAlone] = useState([]);
 
   const { t } = useTranslation();
   const params = {
     count: 4,
   };
 
+  const params1 = {
+    count: 1,
+  };
+
   const fetchData = async () => {
     setLoading(false)
     const data = await API.newsFour(params);
+    const alone = await API.newsFour(params1);
+
 
     setNewsFour(data.data.items.slice(0, params.count));
+    setBigAlone(alone.data.items.slice(0, params1.count))
 
     const news = await API.news();
     setNews(news.data.items);
@@ -56,33 +65,10 @@ export default function () {
         <h2 className="last-news-title">{t("Политика")}</h2>
 
         <div className="img-container-flex">
-          <div className="left-img-con">
-            <div className="left-img-container-one">
-              <img src={img1} alt="img" />
-            </div>
+          {bigAlone.map((item) => (
 
-            <div className="tex-header-flex">
-              <div>
-                <img src={tex} alt="tex" />
-                <p>Texnologiya</p>
-              </div>
-
-              <div>
-                <img src={bugun} alt="tex" />
-                <p>Bugun - 15:45</p>
-              </div>
-            </div>
-
-            <h3>
-              Samsung Galaxy F22 launched in India: Price, features, other
-              details
-            </h3>
-
-            <p>
-              Samsung Galaxy F22 has been launched in India. The new smartphone
-              has been priced in the mid-range segment.
-            </p>
-          </div>
+          <RuknLeftBig item={item} key={item.id} />
+          ))}
           <div className="right-img-con">
             {newsFour.map((item) => {
               return (

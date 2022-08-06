@@ -25,7 +25,7 @@ export default function MainPage() {
   const [newsFour, setNewsFour] = useState([]);
   const [newsRest, setNewsRest] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [bigAlone, setBigAlone] = useState(false);
+  const [bigAlone, setBigAlone] = useState([]);
 
   const params = {
     count: 4,
@@ -81,9 +81,9 @@ export default function MainPage() {
 
           <div className="img-container-flex">
             {bigAlone.map((item, index) => (
-                <Link className="news-a" to={`/yangiliklar/${item.id}`}>
-                  <LeftAloneBig key={item.id} item={item} />
-                </Link>
+              <Link className="news-a" to={`/yangiliklar/${item.id}`}>
+                <LeftAloneBig key={item.id} item={item} />
+              </Link>
             ))}
 
             <div className="right-img-con">
@@ -133,7 +133,7 @@ export default function MainPage() {
         </div>
 
         <div className="all-news-div">
-          <button>{t("Все новости")}</button>
+          {/* <button>{t("Все новости")}</button> */}
         </div>
       </div>
     </div>

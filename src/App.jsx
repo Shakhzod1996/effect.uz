@@ -19,7 +19,6 @@ import Videos from "./components/Videos/Videos";
 export default function App() {
   const [hideSide, setHideSide] = useState(false);
 
-
   return (
     <>
       <div className="main_flex">
@@ -32,12 +31,15 @@ export default function App() {
           <Route path="/audiolar" element={<AudioNews />} />
           <Route path="/videolar" element={<Videos />} />
 
-
           <Route
             path="/yangiliklar/:id"
             element={<ViewPost setHideSide={setHideSide} hideSide={hideSide} />}
           />
 
+          <Route
+            path={`/muharrir/:user_id`}
+            element={<Muharrir setHideSide={setHideSide} />}
+          />
         </Routes>
 
         <SideBar hideSide={hideSide} setHideSide={setHideSide} />

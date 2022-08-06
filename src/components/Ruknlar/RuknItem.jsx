@@ -21,7 +21,7 @@ export default function RuknItem({item}) {
     onMouseEnter={mouseEnter}
     onMouseLeave={mouseLeave}>
       <div className="right-news-item">
-        <img src={pub} alt="pub" />
+        <img src={item.default_img} alt="pub" />
         <div className="right-news-item-inside">
           <h4>
             {item.title_uz.substring(0, 45)}...

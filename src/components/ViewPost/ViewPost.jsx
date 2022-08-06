@@ -108,16 +108,9 @@ export default function ViewPost({ setHideSide }) {
         <p className="main-desc">{parse(news.description_uz)}</p>
 
         <div className="baholash-div">
-          <Link to={`/yangiliklar/${id}/muharrir/${news.user_id}`} className="news-a">
+          <Link to={`/muharrir/${news.user_id}`} className="news-a">
             <h3 onClick={() => setHideSide(true)}>{news.user}</h3>
           </Link>
-
-          <Routes>
-            <Route
-              path={`/muharrir/${news.user_id}`}
-              element={<Muharrir setHideSide={setHideSide} />}
-            />
-          </Routes>
 
           <div className="baho-flex">
             <div>

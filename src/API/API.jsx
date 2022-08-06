@@ -36,6 +36,7 @@ const NEWS_URL = "https://simply.uz/api/news-all";
 const MOST_READ = "https://simply.uz/api/more";
 const VIDEOS = " https://simply.uz/api/news-video"
 const NEW_URL = "https://simply.uz/api/new?id";
+const REPORTER = "https://simply.uz/api/reporter?id"
 
 const API = {
   // ?POST METHODS
@@ -50,6 +51,8 @@ const API = {
   config: () => axios.get(CONFIG_URL, headers),
   news: () => axios.get(NEWS_URL, headers),
   newItem: (ID) => axios.get(`${NEW_URL}= ${ID}`, headers),
+  reporter: (USER_ID) => axios.get(`${REPORTER}= ${USER_ID}`, headers),
+
   mostRead: () => axios.get(MOST_READ, headers),
   videos: () => axios.get(VIDEOS, headers),
 
