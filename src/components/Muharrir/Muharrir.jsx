@@ -7,14 +7,21 @@ import API from "../../API/API";
 
 export default function Muharrir({ setHideSide }) {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
 
   const { user_id } = useParams();
 
   const infoUser = async () => {
     try {
+      setLoading(false)
       const user = await API.reporter(user_id);
 
       setData(user.data);
+
+      setTimeout(() => {
+        setLoading(true);
+      }, 1000);
     } catch (error) {
       console.log(error);
     }
@@ -24,20 +31,32 @@ export default function Muharrir({ setHideSide }) {
     infoUser();
   }, []);
 
+  if (!loading) {
+    return (
+      <div className="loading-div">
+        <i className="bx bx-loader"></i>
+      </div>
+    );
+  }
+
   return (
     <div className="muharrir-container">
       <Header />
-        <div className="muharrir-div-flex">
-          <div className="left-muharrir">
-            <img src={data.img} alt="img" />
+      <div className="muharrir-div-flex">
+        <div className="left-muharrir">
+          <img src={data.img} alt="img" />
 
-            <div className="bottom-light">
-              <h3 className="main-muharrir">Bosh muharrir</h3>
+          <div className="bottom-light">
+            <h3 className="main-muharrir">Bosh muharrir</h3>
 
-              <div className="muharrir-last-absolute">
-                <h3>{data.fullName}</h3>
-                <div className="muharrir-links-flex">
-                  <div>
+            <div className="muharrir-last-absolute">
+              <h3>{data.fullName}</h3>
+              <div className="muharrir-links-flex">
+                <div>
+                  <a
+                    href={`https://telegram.me/share/url?url=${location}`}
+                    target="_blank"
+                  >
                     <svg
                       width="35"
                       height="35"
@@ -51,9 +70,14 @@ export default function Muharrir({ setHideSide }) {
                         fill-opacity="0.96"
                       />
                     </svg>
-                  </div>
+                  </a>
+                </div>
 
-                  <div>
+                <div>
+                  <a
+                    href={`https://www.facebook.com/sharer.php?u=${location}`}
+                    target="_blank"
+                  >
                     <svg
                       width="35"
                       height="35"
@@ -66,9 +90,14 @@ export default function Muharrir({ setHideSide }) {
                         fill="#000CFF"
                       />
                     </svg>
-                  </div>
+                  </a>
+                </div>
 
-                  <div>
+                <div>
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${location}`}
+                    target="_blank"
+                  >
                     <svg
                       width="35"
                       height="35"
@@ -81,48 +110,49 @@ export default function Muharrir({ setHideSide }) {
                         fill="#09B9FF"
                       />
                     </svg>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
-            <div></div>
           </div>
+          <div></div>
+        </div>
 
-          <div className="right-muharrir">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Condimentum sed vulputate varius eget libero odio. Et amet aenean
-              phasellus massa. Lobortis egestas arcu suspendisse cursus ac.
-              Laoreet morbi nunc pharetra risus.
-            </p>
+        <div className="right-muharrir">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum
+            sed vulputate varius eget libero odio. Et amet aenean phasellus
+            massa. Lobortis egestas arcu suspendisse cursus ac. Laoreet morbi
+            nunc pharetra risus.
+          </p>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Condimentum sed vulputate varius eget libero odio. Et amet aenean
-              phasellus massa. Lobortis egestas arcu suspendisse cursus ac.
-              Laoreet morbi nunc pharetra risus.
-            </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum
+            sed vulputate varius eget libero odio. Et amet aenean phasellus
+            massa. Lobortis egestas arcu suspendisse cursus ac. Laoreet morbi
+            nunc pharetra risus.
+          </p>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Condimentum sed vulputate varius eget libero odio. Et amet aenean
-              phasellus massa. Lobortis egestas arcu suspendisse cursus ac.
-              Laoreet morbi nunc pharetra risus.
-            </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum
+            sed vulputate varius eget libero odio. Et amet aenean phasellus
+            massa. Lobortis egestas arcu suspendisse cursus ac. Laoreet morbi
+            nunc pharetra risus.
+          </p>
 
-            <div className="muharrir-details">
-              <div>
-                Maqolalar: <span>{data.news_count}</span>
-              </div>
-              <div>
-                Baholar: <span>{data.stars}</span>
-              </div>
-              <div>
-                Reyting: <span>3.5</span>
-              </div>
+          <div className="muharrir-details">
+            <div>
+              Maqolalar: <span>{data.news_count}</span>
+            </div>
+            <div>
+              Baholar: <span>{data.stars}</span>
+            </div>
+            <div>
+              Reyting: <span>3.5</span>
             </div>
           </div>
         </div>
+      </div>
     </div>
   );
 }

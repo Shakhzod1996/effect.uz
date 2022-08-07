@@ -31,7 +31,6 @@ export default function News() {
       setTimeout(() => {
         setLoading(true);
       }, 1000);
-
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +43,7 @@ export default function News() {
   if (!loading) {
     return (
       <div className="loading-div">
-        <i className='bx bx-loader'></i>
+        <i className="bx bx-loader"></i>
       </div>
     );
   }
@@ -77,30 +76,9 @@ export default function News() {
             </div>
           </div>
 
-          <div className="date-div two">
-            <div className="blue-line"></div>
-            <p>22.07.2022</p>
-          </div>
-
-          <div className="news-cards-flex">
-            <div className="right-news-container">
-              {news.map((item) => {
-                return (
-                  <Link
-                    className="news-a"
-                    key={item.id}
-                    to={`/yangiliklar/${item.id}`}
-                  >
-                    <NewsItem item={item} />
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="btn-container">
+          {/* <div className="btn-container">
             <button>{t("Перезагрузить")}</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -335,7 +335,7 @@ export default function Navbar({ setHideSide }) {
 
         <NavLink
           id="advers"
-          to="/advers"
+          to="/reklama-murojat"
           className={({ isActive }) => (isActive ? "active-nav" : undefined)}
         >
           <li onClick={() => setHideSide(false)}>

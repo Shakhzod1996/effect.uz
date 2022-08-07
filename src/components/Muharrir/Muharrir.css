@@ -86,7 +86,13 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.muharrir-links-flex > div > svg {
+.muharrir-links-flex > div > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.muharrir-links-flex > div > a> svg {
   width: 21px;
   height: 21px;
 }

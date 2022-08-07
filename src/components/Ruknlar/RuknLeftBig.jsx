@@ -24,7 +24,7 @@ export default function RuknLeftBig({item}) {
 
     <h3>{item.title_uz}</h3>
 
-    <p>{parse(item.description_uz.substring(0, 200))}</p>
+    {/* <p>{parse(item.description_uz.substring(0, 200))}</p> */}
   </div>
   )
 }

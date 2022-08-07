@@ -26,6 +26,7 @@ export default function MainPage() {
   const [newsRest, setNewsRest] = useState([]);
   const [loading, setLoading] = useState(false);
   const [bigAlone, setBigAlone] = useState([]);
+  const [sorted, setSorted] = useState([]);
 
   const params = {
     count: 4,
@@ -53,9 +54,19 @@ export default function MainPage() {
       }, 1000);
     } catch (error) {}
   };
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  const sortCategoryHandler = async (id) => {
+    try {
+      const sort = await API.sortByCategory(id)
+      setSorted(sort.data.items)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   if (!loading) {
     return (
@@ -72,17 +83,17 @@ export default function MainPage() {
         <div className="last-news">
           <h2 className="last-news-title">{t("Последние новости")}</h2>
           <div className="btn-sliders">
-            <Swiper slidesPerView={8} spaceBetween={10} className="mySwiper">
+            <Swiper  slidesPerView={8} spaceBetween={10} className="mySwiper">
               {data.map((item) => (
-                <SwiperSlide key={item.id}>{item.name_uz}</SwiperSlide>
+                <SwiperSlide onClick={() => sortCategoryHandler(item.id)} key={item.id}>{item.name_uz}</SwiperSlide>
               ))}
             </Swiper>
           </div>
 
           <div className="img-container-flex">
             {bigAlone.map((item, index) => (
-              <Link className="news-a" to={`/yangiliklar/${item.id}`}>
-                <LeftAloneBig key={item.id} item={item} />
+              <Link className="news-a"key={item.id}  to={`/yangiliklar/${item.id}`}>
+                <LeftAloneBig item={item} />
               </Link>
             ))}
 
@@ -132,9 +143,9 @@ export default function MainPage() {
           })}
         </div>
 
-        <div className="all-news-div">
-          {/* <button>{t("Все новости")}</button> */}
-        </div>
+        {/* <div className="all-news-div">
+          <button onClick={() => MoreNewsByClicked()}>{t("Все новости")}</button>
+        </div> */}
       </div>
     </div>
   );

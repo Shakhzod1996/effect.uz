@@ -20,7 +20,7 @@ export default function NewsItem({ item }) {
       onMouseLeave={mouseLeave}
     >
       <div className="right-news-item">
-        <img src={pub} alt="pub" />
+        <img src={item.default_img} alt="pub" />
         <div className="right-news-item-inside">
           <h4>{item.title_uz}</h4>
 

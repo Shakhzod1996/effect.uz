@@ -120,12 +120,12 @@ export default function () {
             </div>
           </div>
 
-          <div className="date-div two">
+          {/* <div className="date-div two">
             <div className="blue-line"></div>
             <p>22.07.2022</p>
-          </div>
+          </div> */}
 
-          <div className="news-cards-flex">
+          {/* <div className="news-cards-flex">
             <div className="right-news-container">
               {news.map((item) => {
                 return (
@@ -139,7 +139,7 @@ export default function () {
                 );
               })}
             </div>
-          </div>
+          </div> */}
 
           <div className="btn-container">
             <button>{t("Перезагрузить")}</button>

@@ -23,8 +23,10 @@ export default function LeftAloneBig({ item }) {
       </div>
 
       <h3>{item.title_uz}</h3>
+      <div>
 
-      <p>{parse(item.description_uz.substring(0, 200))}</p>
+      {/* <p>{parse(item.description_uz.substring(0, 200))}</p>  */}
+      </div>
     </div>
   );
 }

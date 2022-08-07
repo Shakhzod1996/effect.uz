@@ -15,6 +15,8 @@ import AudioNews from "./components/AudioNews/AudioNews";
 import API from "./API/API";
 import Muharrir from "./components/Muharrir/Muharrir";
 import Videos from "./components/Videos/Videos";
+import Advertisement from "./components/Advertisement/Advertisement";
+import Takliflar from "./components/Takliflar/Takliflar";
 
 export default function App() {
   const [hideSide, setHideSide] = useState(false);
@@ -30,6 +32,10 @@ export default function App() {
           <Route path="/ruknlar" element={<Ruknlar />} />
           <Route path="/audiolar" element={<AudioNews />} />
           <Route path="/videolar" element={<Videos />} />
+          <Route path="/reklama-murojat" element={<Advertisement />} />
+          <Route path="/takliflar" element={<Takliflar />} />
+
+
 
           <Route
             path="/yangiliklar/:id"

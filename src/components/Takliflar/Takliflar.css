@@ -1,0 +1,25 @@
+.takliflar {
+  padding-top: 20px;
+  width: 771px;
+  background-color: #F4F9F8;
+}
+
+.takliflar-header {
+  margin-top: 30px;
+}
+
+.form-takliflar {
+  margin-top: 30px;
+}
+
+.form-takliflar > div {
+  height: auto;
+}
+
+.form-takliflar > div > input {
+  padding: 15px;
+}
+
+.form-takliflar > div > textarea {
+  height: 200px;
+}
